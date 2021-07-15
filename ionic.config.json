@@ -1,0 +1,7 @@
+{
+  "name": "aTechTask",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
