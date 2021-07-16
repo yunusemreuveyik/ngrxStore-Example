@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let data of list" class="items">{{data.title}} {{data.description}}</div>
+
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input [(ngModel)]="desc"></ion-input>
+  </ion-item>
+
+  <ion-row style="    display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  margin-bottom: 30px;">
+    <div (click)="addItem()" tappable class="actionbutton">Add Item</div>
+  </ion-row>
+
+  
+</ion-content>

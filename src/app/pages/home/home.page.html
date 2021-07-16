@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let data of list; let i = index" class="items">{{data.title}} {{data.description}}<ion-icon name="trash-outline" (click)="deleteItem(i)"></ion-icon></div>
+
+  <!-- <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input [(ngModel)]="desc"></ion-input>
+  </ion-item> -->
+
+
+  <!-- <ion-row style="    display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  margin-bottom: 30px;">
+    <div (click)="addItem()" tappable class="actionbutton">Delete Item</div>
+  </ion-row> -->
+    
+
+  
+  
+  <app-profile></app-profile>
+</ion-content>
