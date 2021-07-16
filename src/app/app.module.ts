@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/page.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProfilePage } from './pages/profile/profile.page';
+import { dataProvider } from './dataProvider/provider';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,16 @@ import { ProfilePage } from './pages/profile/profile.page';
       tutorial: reducer
     }),
     EffectsModule.forRoot([])],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    
+    dataProvider, 
+    { provide: APP_INITIALIZER, useFactory: dataProviderFactory, deps: [dataProvider], multi: true },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function dataProviderFactory(provider: dataProvider) {
+  return () => provider.load();
+}

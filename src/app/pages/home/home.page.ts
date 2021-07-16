@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AddPage, LOAD_TUTORIAL, RemovePage } from 'src/app/actions/pageRootActions.actions';
 import { AppState } from 'src/app/app.state';
+import { dataProvider } from 'src/app/dataProvider/provider';
 import { pageModel } from 'src/app/models/pageMode.model';
 import { FetchDataService } from 'src/app/services/fetch-data.service';
 
@@ -17,7 +18,10 @@ export class HomePage implements OnInit {
   title;
   desc;
   constructor(private store: Store<AppState>,
-    private dataService: FetchDataService) { }
+    private dataService: FetchDataService,
+    private dataProvider: dataProvider) {
+      console.log("data from provider with app_initializer: ",this.dataProvider.getData())
+     }
 
   ngOnInit() {
     this.store.select("tutorial").subscribe(res=>{
