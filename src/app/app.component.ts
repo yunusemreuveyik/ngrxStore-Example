@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
-    console.log('app component constractor: ');
-    
   }
 }
