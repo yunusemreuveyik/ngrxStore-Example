@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let data of list" class="items">{{data.title}} {{data.description}}</div>
+  <div *ngFor="let data of list" class="items">{{data.title}} {{data.description}} <ion-icon name="trash-outline" (click)="deleteItem(i)"></ion-icon></div>
 
   <ion-item>
     <ion-label>Title</ion-label>

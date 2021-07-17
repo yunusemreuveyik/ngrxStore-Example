@@ -17,9 +17,9 @@ export class HomePage implements OnInit {
   list: pageModel[];
   title;
   desc;
-  constructor(private store: Store<AppState>,
-    private dataService: FetchDataService,
-    private dataProvider: dataProvider) {
+  constructor(protected store: Store<AppState>,
+    protected dataService: FetchDataService,
+    protected dataProvider: dataProvider) {
       console.log("data from provider with app_initializer: ",this.dataProvider.getData())
      }
 
@@ -35,6 +35,9 @@ export class HomePage implements OnInit {
   }
   deleteItem(index:number){
     this.store.dispatch(new RemovePage(index))
+  }
+  addItem(){
+    this.store.dispatch(new AddPage({title: this.title, description: this.desc}))
   }
   
 }
